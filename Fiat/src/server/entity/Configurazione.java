@@ -11,7 +11,7 @@ public class Configurazione {
 		lista_auto_config= new ArrayList<Auto>();
 	}
 	
-	public ArrayList<Componente> getAllComp() {
+	public ArrayList<Componente> getListaComp() {
 		return lista_comp;
 	}
 	

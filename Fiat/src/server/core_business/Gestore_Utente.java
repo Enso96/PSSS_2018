@@ -5,6 +5,7 @@ import server.entity.Auto;
 import server.entity.Configurazione;
 import server.entity.Utente;
 import server.entity.InfoUtente;
+import server.entity.Proprieta;
 
 public class Gestore_Utente {
 
@@ -16,10 +17,10 @@ public class Gestore_Utente {
 	}
 	public static synchronized Gestore_Utente getGestoreUtente() {
 		if(gestoreUtente_instance==null) {
-		//	System.out.println("Inizializzo il gestore");
+		//	System.out.println("Inizializzo il gestoreUtente");
 			gestoreUtente_instance=new Gestore_Utente();
 		}
-		//System.out.println("Ritorna il gestore");
+		//System.out.println("Ritorna il gestoreUtente");
 		return gestoreUtente_instance;
 	}
 	
@@ -27,12 +28,21 @@ public class Gestore_Utente {
 		return info_utente.registraUtente(s, p);
 	}
 	
-	public ArrayList<Configurazione> getAllConf(Utente u) {
-		return u.getAllConf();
+	public ArrayList<Configurazione> getListaConf(Utente u) {
+		return u.getListaConf();
 	}
 	
 	public ArrayList<Auto> getAllAuto(Utente u){
-		return u.getAllAuto();
+		ArrayList<Proprieta> lista_proprieta=new ArrayList<Proprieta>(u.getListaProprieta());
+		ArrayList<Auto> lista_auto=new ArrayList<Auto>();
+		for(int i=0;i<lista_proprieta.size();i++) {
+			lista_auto.add(lista_proprieta.get(i).getAuto());
+			}
+		return lista_auto;
+	}
+	
+	public Utente getUtente(int id) {
+		return info_utente.getUtente(id);
 	}
 	
 }

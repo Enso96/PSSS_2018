@@ -14,10 +14,10 @@ public class InfoUtente {
 	
 	public static synchronized InfoUtente getInfoUtente() {
 		if(InfoUtente_instance==null) {
-		//	System.out.println("Inizializzo il gestore");
+		//	System.out.println("Inizializzo l infoUtente");
 			InfoUtente_instance=new InfoUtente();
 		}
-		//System.out.println("Ritorna il gestore");
+		//System.out.println("Ritorna l infoUtente");
 		return InfoUtente_instance;
 	}
 	
@@ -25,6 +25,15 @@ public class InfoUtente {
 		Utente u= new Utente(s,p);
 		lista_utente.add(u);
 		return u;
+	}
+	
+	public Utente getUtente(int id) {
+		for(int i=0;i<lista_utente.size();i++) {
+			if(lista_utente.get(i).getId()==id) {
+				return lista_utente.get(i);
+			}
+		}
+		return null;
 	}
 	
 	

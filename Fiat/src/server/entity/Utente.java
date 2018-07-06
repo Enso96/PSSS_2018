@@ -38,18 +38,12 @@ public class Utente {
 		lista_proprieta.add(p);
 	}
 	
-	public ArrayList<Configurazione> getAllConf() {
+	public ArrayList<Configurazione> getListaConf() {
 		return this.lista_conf;
 	}
 	
-	public ArrayList<Auto> getAllAuto(){
-		ArrayList<Auto> lista_auto=null;
-		for(int i=0;i<lista_proprieta.size();i++) {
-			if(lista_proprieta.get(i).getProprietario().equals(this) ) {
-				lista_auto.add(lista_proprieta.get(i).getAuto() );
-			}
-		}
-		return lista_auto;
+	public ArrayList<Proprieta> getListaProprieta(){
+		return lista_proprieta;
 	}
 	
 }

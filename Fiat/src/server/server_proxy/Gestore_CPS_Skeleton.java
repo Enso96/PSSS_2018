@@ -21,6 +21,11 @@ public abstract class Gestore_CPS_Skeleton implements IGestoreCPS {
 				String comando= din.readUTF();
 				if(comando.equalsIgnoreCase("associaConfigurazione")){
 					/*Comunicazione con il client*/
+					//L'utente si deve identificare con qualcosa( id)
+					//IgestoreCPS deve avere un metodo per verificare l'utente
+					//e dovrà passare per il gestore utente con il metodo getUtente(id)
+					
+					//this.associaConfigurazione(u);
 				}else if( comando.equalsIgnoreCase("Altra Azione del server")){
 					/*Comunicazione con il client*/
 				}
