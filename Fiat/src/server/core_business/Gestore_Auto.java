@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import server.entity.Auto;
 import server.entity.Componente;
+import server.entity.Configurazione;
 
 public class Gestore_Auto {
 	private static Gestore_Auto gestoreAuto_instance=null;
@@ -22,6 +23,10 @@ public class Gestore_Auto {
 	
 	public ArrayList<Componente> getAllComp(Auto a) {
 		return a.getAllComp();
+	}
+	
+	public void configura_Auto(Auto a,Configurazione c) {
+		a.configura_Auto(c);
 	}
 
 }

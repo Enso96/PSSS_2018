@@ -7,8 +7,10 @@ public class Auto {
 	private int targa;
 	private int id;
 	private ArrayList<Configurabilita> lista_configurabilita=null;
+	private Configurazione configurazione;
 	
 	public Auto(int t,int id) {
+		lista_configurabilita= new ArrayList<Configurabilita>();
 		this.targa=t;
 		this.id=id;
 	}
@@ -26,6 +28,14 @@ public class Auto {
 			}
 		}
 		return lista_comp;
+	}
+	
+	public void configura_Auto(Configurazione c) {
+		this.configurazione=c;
+	}
+	
+	public Configurazione getConfigurazione() {
+		return this.configurazione;
 	}
 	
 }

@@ -7,6 +7,7 @@ public class InfoUtente {
 
 	private static InfoUtente InfoUtente_instance=null;
 	private ArrayList<Utente> lista_utente;
+	
 	private InfoUtente() {
 		lista_utente= new ArrayList<Utente>();
 	}

@@ -13,6 +13,8 @@ public class Utente {
 		this.password=p;
 		this.name=n;
 		id=id++;
+		lista_conf=new ArrayList<Configurazione>();
+		lista_proprieta= new ArrayList<Proprieta>();
 	}
 
 	public int getPassword() {

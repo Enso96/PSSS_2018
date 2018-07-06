@@ -36,9 +36,25 @@ public class Gestore_CPS extends Gestore_CPS_Skeleton{
 	public void associaConfigurazione(Utente u) {
 		ArrayList<Configurazione> allconf_utente=g_utente.getAllConf(u);
 		ArrayList<Auto> allAuto_utente=g_utente.getAllAuto(u);
-		//comunico con il cliente queste info che mi rispondera con una conf e una proprieta
+		//comunico con il cliente queste info 
 		Auto a=allAuto_utente.get(0);
+		Configurazione c=allconf_utente.get(0);
+		//il client mi rispondera con una conf e una proprieta
+		
 		ArrayList<Componente> allComp_auto=g_auto.getAllComp(a);
+		ArrayList<Componente> allComp_conf=g_conf.getAllComp(c);
+		
+		//sto ciclo si può ottimizzare con while o uso di altre funzioni
+		for(int i=0;i<allComp_auto.size();i++) {
+			for(int j=0;i<allComp_conf.size();j++) {
+				if( allComp_conf.get(j).equals(allComp_auto.get(i)) ) {//se sono lo stesso componente(stesso nome oppure boh)
+					allComp_auto.get(i).configuraComp(allComp_conf.get(j));// un metodo che dato un componente ne assegna i valori ad un altro componente
+				}
+			}
+		}
+		
+		g_auto.configura_Auto(a, c);
+		g_conf.aggiungiAutoConfig(a, c);
 	}
 
 }
