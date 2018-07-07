@@ -1,6 +1,6 @@
 package server.core_business;
 import java.util.ArrayList;
-
+// ìò poXxò tù nò
 import server.entity.Auto;
 import server.entity.Configurazione;
 import server.entity.Utente;
