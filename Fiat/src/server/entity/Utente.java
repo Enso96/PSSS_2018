@@ -1,9 +1,15 @@
 package server.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Utente {
+public class Utente implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int password;
 	private String name;
 	private static int id=0;

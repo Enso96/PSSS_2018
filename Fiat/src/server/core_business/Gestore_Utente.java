@@ -45,5 +45,9 @@ public class Gestore_Utente {
 		return info_utente.getUtente(id);
 	}
 	
+	public Utente checkUtente(Utente u) {
+		return info_utente.checkUtente(u);
+	}
+	
 }
 

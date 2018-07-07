@@ -31,27 +31,33 @@ public class Gestore_CPS extends Gestore_CPS_Skeleton{
 		//System.out.println("Ritorna il gestoreCPS");
 		return gestoreCPS_instance;
 	}
-	
+
 	@Override
-	public void associaConfigurazione(Utente u) {
-		ArrayList<Configurazione> allconf_utente=g_utente.getListaConf(u);
-		ArrayList<Auto> allAuto_utente=g_utente.getAllAuto(u);
-		
-		//comunico con il cliente queste info 
-		Auto a=allAuto_utente.get(0);
-		Configurazione c=allconf_utente.get(0);
-		//il client mi rispondera con una conf e una proprieta
-		
+	public ArrayList<Auto> SelezionaAuto(Utente u){
+		return g_utente.getAllAuto(u);
+	}
+
+	@Override
+	public ArrayList<Configurazione> SelezionaConfigurazione(Utente u){
+		return g_utente.getListaConf(u);
+	}
+	
+	public Utente checkUtente(Utente u) {
+		return g_utente.checkUtente(u);
+	}
+
+	@Override
+	public void associaConfigurazione(Auto a, Configurazione c) {
 		ArrayList<Componente> allComp_auto=g_auto.getAllComp(a);
 		ArrayList<Componente> allComp_conf=g_conf.getListaComp(c);
-		//System.out.println("Compoenti auto sono in numero:"+allComp_auto.size());
-		//System.out.println("Compoenti configurazione sono in numero:"+allComp_conf.size());
+		System.out.println("Compoenti auto sono in numero:"+allComp_auto.size());
+		System.out.println("Compoenti configurazione sono in numero:"+allComp_conf.size());
 		
 		//sto ciclo si può ottimizzare con while o uso di altre funzioni
 		for(int i=0;i<allComp_auto.size();i++) {
 			for(int j=0;j<allComp_conf.size();j++) {
 				if( allComp_conf.get(j).equals(allComp_auto.get(i)) ) {//se sono lo stesso componente(stesso nome oppure boh)
-					//System.out.println("Configuro il componente:"+allComp_conf.get(j).getNome());
+					System.out.println("Configuro il componente:"+allComp_conf.get(j).getNome());
 					allComp_auto.get(i).configuraComp(allComp_conf.get(j));// un metodo che dato un componente ne assegna i valori ad un altro componente
 				}
 			}
@@ -60,6 +66,15 @@ public class Gestore_CPS extends Gestore_CPS_Skeleton{
 		
 		g_auto.configura_Auto(a, c);
 		g_conf.aggiungiAutoConfig(a, c);
+		
 	}
+
+	@Override
+	public void associaConfigurazione(Utente u) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }

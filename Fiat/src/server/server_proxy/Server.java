@@ -14,8 +14,8 @@ public class Server {
 
 	public static void main(String[] args) {
 		Gestore_CPS ges_cps= Gestore_CPS.getGestoreCPS();
-		/*
-		 //Usato per provare il server senza il client
+		
+		 //Usato per provare il server senza il db
 		 
 		Gestore_Utente gu=Gestore_Utente.getGestoreUtente();
 		Gestore_Auto ga=Gestore_Auto.getGestoreAuto();
@@ -40,23 +40,12 @@ public class Server {
 		
 		Utente u=gu.registraUtente("dario", 1234);
 		
-		System.out.println(u.getName());
+		System.out.println(u.getId());
 		u.aggiungi_Conf(conf);
 		u.aggiungi_Proprieta(a1);
 		u.aggiungi_Proprieta(a2);
+		//fine settaggi
 		
-
-		ArrayList<Configurazione> allconf_utente=gu.getListaConf(u);
-		
-		System.out.println(allconf_utente.size() );
-		Configurazione confmia=allconf_utente.get(0);
-		ArrayList<Auto> allAuto_utente=gu.getAllAuto(u);
-		System.out.println(allAuto_utente.size() );
-		Auto automia=allAuto_utente.get(1);
-		System.out.println("Id mai auto"+automia.getId() );
-		
-		ges_cps.associaConfigurazione(u);
-		*/
 		ges_cps.runSkeleton();
 			
 	}

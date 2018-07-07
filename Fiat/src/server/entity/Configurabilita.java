@@ -1,7 +1,13 @@
 package server.entity;
 
-public class Configurabilita {
+import java.io.Serializable;
 
+public class Configurabilita implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Componente comp;
 	private Auto auto;
 	

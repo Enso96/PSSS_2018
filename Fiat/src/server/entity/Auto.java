@@ -1,9 +1,14 @@
 package server.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Auto {
+public class Auto implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int targa;
 	private int id;
 	private ArrayList<Configurabilita> lista_configurabilita=null;

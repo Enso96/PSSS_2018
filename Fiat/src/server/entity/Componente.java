@@ -1,7 +1,13 @@
 package server.entity;
 
-public class Componente {
+import java.io.Serializable;
 
+public class Componente implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private int altezza;
 	public Componente(String n,int a) {
